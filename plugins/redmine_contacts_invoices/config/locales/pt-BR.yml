@@ -1,0 +1,57 @@
+# Brazilian Portuguese strings go here for Rails i18n
+pt-BR:
+  project_module_contacts_invoices: Faturas
+  
+  label_invoice_plural: Faturas
+  label_invoice: Fatura
+  label_invoice_new: Nova fatura
+  label_invoice_edit: Editar fatura
+  label_invoice_status: Situação
+  label_invoice_status_draft: Rascunho
+  label_invoice_status_sent: Enviada
+  label_invoice_status_paid: Paga
+  label_invoice_lines: Items
+  label_invoice_percent: Percentual
+  label_invoice_amount: Montante
+  label_invoice_address: Endereço
+  label_invoice_bill_to: Conta para
+  label_invoice_company_representative: Representante
+  label_invoice_company_name: Nome da companhia
+  label_invoice_company_info: Informações da companhia
+  label_invoice_bill_info: Informações da conta
+  label_invoice_units: Unidades
+  label_invoice_total: Total
+  label_invoice_tax: Nota fiscal
+  label_invoice_sub_amount: Subtotal
+  label_invoice_invoiced: Faturado
+  label_invoice_add_line: Adicionar item
+  label_invoice_overdue: Vencido
+  label_invoice_last_number: "Último número da fatura foi #%{number}"
+  
+  permission_edit_own_invoices: Editar minhas faturas
+  permission_edit_invoices: Editar faturas
+  permission_delete_invoices: Apagar faturas
+  permission_view_invoices: Ver faturas
+
+  button_send_mail: Enviar
+  button_print: Imprimir
+  button_invoice: Fatura
+
+  field_invoice_number: Número
+  field_invoice_date: Data da fatura
+  field_invoice_contact: Cliente
+  field_invoice_due_date: Data de vencimento
+  field_invoice_amount: Valor
+  field_invoice_discount: Desconto
+  field_invoice_assigned_to: Atribuído para
+  field_invoice_status: Situação
+  field_invoice_currency: Moeda
+  
+  field_invoice_line_position: '#'
+  field_invoice_line_description: Descrição
+  field_invoice_line_price: Valor
+  field_invoice_line_quantity: Qtde
+  field_invoice_line_tax: Taxa
+  field_invoice_line_tax_amount: Total da taxa
+  field_invoice_line_total: Total
+  field_invoice_line_units: Unidade

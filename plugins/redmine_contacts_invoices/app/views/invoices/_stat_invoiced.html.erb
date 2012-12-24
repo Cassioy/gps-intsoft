@@ -1,0 +1,24 @@
+<h3><%= "#{l(:label_invoice_invoiced)}#{' - ' + @invoice.contact.name.strip if @invoice && @invoice.contact}"  %></h3>
+<table class="invoices-stat">
+  <tr>
+    <th><%= l(:label_this_week).mb_chars.capitalize.to_s %></th>      
+    <td class="sum"><%= stat_sum(@current_week_sum) %></td>
+  </tr>
+  <tr>
+    <th><%= l(:label_last_week).mb_chars.capitalize.to_s %></th>      
+    <td class="sum"><%= stat_sum(@last_week_sum) %></td>
+  </tr>
+  <tr>
+    <th><%= l(:label_this_month).mb_chars.capitalize.to_s %></th>      
+    <td class="sum"><%= stat_sum(@current_month_sum) %></td>
+  </tr>
+  <tr>
+    <th><%= l(:label_last_month).mb_chars.capitalize.to_s %></th>      
+    <td class="sum"><%= stat_sum(@last_month_sum) %></td>
+  </tr>
+  <tr>
+    <th><%= l(:label_this_year).mb_chars.capitalize.to_s %></th>      
+    <td class="sum"><%= stat_sum(@current_year_sum) %></td>
+  </tr>
+
+</table>

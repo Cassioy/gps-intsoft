@@ -1,0 +1,130 @@
+.icon-pdf { background-image: url(../images/page_white_acrobat.png); }  
+.icon-pdf-context { background-image: url(../images/page_white_acrobat_context.png); }  
+.icon-invoice { background-image: url(../images/invoice.png); }  
+.icon-invoice-add { background-image: url(../images/invoice_add.png); }  
+.icon-invoice-add-context { background-image: url(../images/invoice_add_context.png); }  
+.icon-sort { background-image: url(../images/sortable.png); }  
+
+div.issue.invoice {background: #EAF7FF;}
+
+/**********************************************************************/
+/* INVOICE LIST 
+/**********************************************************************/
+
+.invoice_list table.list td.amount, .invoice_list table.list tr:hover td.amount {border-left-style: hidden;padding-left: 10px;}
+.invoice_list table.list tr.invoice a {color: #666;}
+.invoice_list tr.odd.overdue, .invoice_list table.list tbody tr.odd.overdue:hover { color: #900; }
+.invoice_list tr.odd.overdue { background: #FEE; }
+.invoice_list tr.even.overdue, .invoice_list table.list tbody tr.even.overdue:hover { color: #900; }
+.invoice_list tr.even.overdue { background: #FFF2F2; }
+.invoice_list tr.overdue a { color: #900; }
+.invoice_list tr.odd.overdue td, .invoice_list tr.even.overdue td { border-color: #FCC;}
+
+.invoice_list tr.odd.status-3, .invoice_list table.list tbody tr.odd.status-3:hover { color: #005F00; }
+.invoice_list tr.odd.status-3 { background: #EBFEEB; }
+.invoice_list tr.even.status-3, .invoice_list table.list tbody tr.even.status-3:hover { color: #005F00; }
+.invoice_list tr.even.status-3 { background: #DFFFDF; }
+.invoice_list tr.status-3 a { color: #005F00; }
+.invoice_list tr.odd.status-3 td, .invoice_list tr.even.status-3 td { border-color: #9FCF9F; }
+
+/**********************************************************************/
+/* INVOICE EXCERPT LIST 
+/**********************************************************************/
+
+table.invoices.index td.name h1.invoice_number {font-size: 16px;}
+table.invoices.index td.status { padding: 13px 5px 0px 10px;}
+table.invoices.index td.name.invoice-name { width: 80%;}
+table.invoices.index td.info.invoice-info {white-space: nowrap; text-align: right;padding-right: 10px;}
+table.contacts.index th.sum.invoices-sum { text-align: right; }
+table.contacts.index .invoice-date {margin-top: 3px;}
+table.contacts.index .overdue-days {color: #B54;}
+table.contacts.index tr.context-menu-selection .overdue-days {color: white;}
+
+/**********************************************************************/
+/* INVOICE DATA 
+/**********************************************************************/
+span.invoice-status {
+	padding: 3px 4px;
+	font-size: 10px;
+	white-space: nowrap;
+	margin-right: 4px;
+	color: white;
+}
+
+span.invoice-status.draft {background-color: #AAA;}
+span.invoice-status.sent {background-color: deepSkyBlue;}
+span.invoice-status.paid {background-color: green;}
+
+div.issue.invoice table.progress td.closed { background: #F99 none repeat scroll 0%;}
+
+/**********************************************************************/
+/* INVOICE LINES 
+/**********************************************************************/
+table.invoice-lines {border: 0px;}
+table.invoice-lines thead th, table.invoice-lines th {border: 0px;background: transparent;}
+table.invoice-lines th.price, table.invoice-lines th.total {text-align: right;}
+table.invoice-lines tbody tr:hover { background-color:inherit;}
+table.invoice-lines tbody tr.line-data:hover { background-color:#ffffdd; }
+table.invoice-lines tr.line-data {white-space: nowrap;}
+table.invoice-lines td {padding-left: 4px; border: solid 1px #D7D7D7;}
+table.invoice-lines td.description {text-align: left;width: 55%;white-space: normal;}
+table.invoice-lines td.quantity {text-align: center;}
+table.invoice-lines td.units {text-align: center;}
+table.invoice-lines td.price {text-align: right;}
+table.invoice-lines td.tax {text-align: center;}
+table.invoice-lines td.tax_amount {text-align: right;}
+table.invoice-lines td.total_price {text-align: right;}
+table.invoice-lines tr.total th {
+	text-align: right;
+	padding-top: 1px;
+  padding-bottom: 1px;
+}
+/*tr.sortable-line {cursor: row-resize;}*/
+
+
+/**********************************************************************/
+/* INVOICE STAT 
+/**********************************************************************/
+
+table.invoices-stat th {text-align: left; vertical-align: top; padding-bottom: 10px;font-weight: normal;}
+table.invoices-stat td.sum {text-align: right; padding-bottom: 10px;white-space: nowrap;font-weight: bold;}
+table.invoices-stat {padding-right: 10px; width: 100%;}
+table.invoices-stat .currency {	padding-left: 15px;	padding-right: 15px;}
+table.invoices-stat.statuses th {padding-top: 7px;}
+
+/**********************************************************************/
+/* INVOICE  FORM 
+/**********************************************************************/
+#invoice_form p.object-select select {width: 60%;}
+
+/**********************************************************************/
+/* INVOICE LINES FORM 
+/**********************************************************************/
+table.invoice-lines.form {width: 100%;}
+table.invoice-lines.form td {border: 0px;}
+table.invoice-lines.form td.position {width: 20px;}
+table.invoice-lines.form tr.line.fields td.units select {max-width: 100px;min-width: 80px;}
+table.invoice-lines.form tr.line.fields td.quantity input {text-align: center;}
+table.invoice-lines.form tr.line.fields td.price input {text-align: right;}
+table.invoice-lines.form tr.line.fields td.tax input {text-align: right;}
+table.invoice-lines.form tr.line.fields td {text-align: center;}
+table.invoice-lines.form tr.line.fields td.description textarea {width: 100%;}
+table.invoice-lines.form tr.line.fields td.description {padding-right: 10px;}
+table.invoice-lines.form tr.line.fields td.total {text-align: right;font-weight: bold;}
+table.invoice-lines.form td#total_amount {
+	text-align: right;
+	border-top-style: solid;
+	border-top-color: #D7D7D7;
+	border-top-width: 1px;
+	font-weight: bold;
+}
+
+/**********************************************************************/
+/* MISC
+/**********************************************************************/
+
+.filter-condition {
+	display: inline-block;
+}
+
+

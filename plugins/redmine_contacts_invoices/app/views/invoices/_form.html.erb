@@ -1,0 +1,71 @@
+<%= error_messages_for 'invoice' %>
+
+<div class="box tabular">
+  
+<div class="splitcontentleft">  
+  <p><%= f.text_field :number, :label => l(:field_invoice_number), :required => true, :style => "width: 90%" %>
+    <% if @invoice.new_record? && @last_invoice_number %>
+    <br>
+  	<em><%= l(:label_invoice_last_number, :number => @last_invoice_number) %></em>
+  	<% end %>
+  </p>
+
+  <p class="subject"><%= f.text_field :subject, :label => l(:field_invoice_subject), :style => "width: 90%" %></p>
+  <p class="object-select"><%= f.select :status_id, collection_invoice_statuses, :label => l(:field_invoice_status), :required => true %></p>
+  <p class="object-select"><%= f.select :contact_id, (RedmineContactsInvoices.settings[:select_companies] ? @project.contacts.where(:is_company => true) : @project.contacts).select("DISTINCT #{Contact.table_name}.*").collect {|u| [u.company.blank? ? u.name : "#{u.name} (#{u.company})", u.id]}, :label => l(:field_invoice_contact) if User.current.allowed_to?(:view_contacts, @project) %></p>
+  <p class="object-select"><%= f.select :language, invoice_lang_options_for_select, :label => l(:field_invoice_language) %></p>
+  <p class="object-select"><%= f.select :assigned_to_id, (@project.assignable_users.collect {|m| [m.name, m.id]}), :include_blank => true, :label => l(:label_assigned_to) %></p>   
+</div>
+
+<div class="splitcontentright">
+  <p><%= f.text_field :invoice_date, :size => 12, :required => true %><%= calendar_for('invoice_invoice_date') %> </p> 
+  <p><%= f.text_field :due_date, :label => l(:field_invoice_due_date), :size => 12 %><%= calendar_for('invoice_due_date') %> </p>   
+  <p><%= f.select :currency, invoice_collection_for_currencies_select, :label => l(:field_invoice_currency), :include_blank => true  %></p>
+  <p>
+    <%= f.text_field :discount, :label => l(:field_invoice_discount), :size => 10 %>
+    <%= select_tag "invoice[discount_type]", options_for_select(collection_for_discount_types_select, @invoice.discount_type) %>
+  </p>
+</div>
+  
+<div style="clear:both;"> </div>
+
+<p><%= f.text_area :description, :cols => 60, :rows => 10, :class => 'wiki-edit' %><%# wikitoolbar_for 'invoice_description' %></p>
+
+<fieldset class="attributes">
+  <legend><%= l(:label_invoice_lines) %></legend>
+  <table class="invoice-lines form">
+    <tr>
+      <!-- <th class="sort"></th> -->
+      <th><%= l(:field_invoice_line_description) %></th>
+      <th><%= l(:field_invoice_line_quantity) %></th>
+      <th><%= l(:field_invoice_line_units) %></th>
+      <th><%= l(:field_invoice_line_price) %></th>
+      <% unless RedmineContactsInvoices.settings[:disable_taxes] %>
+      <th><%= l(:field_invoice_line_tax) %></th>
+      <% end %>
+      <th><%= l(:label_invoice_total) %></th>
+    </tr>
+
+  <tbody id="sortable">
+    <tr style="display:none;"></tr>
+    <%= f.fields_for :lines do |builder| %>  
+        <%= render :partial => 'line_fields', :locals => {:f => builder} %>
+    <% end %>
+  </tbody>
+
+  <tr>
+    <td colspan="9">  
+      <%= link_to_add_fields l(:label_invoice_add_line), f, :lines %>
+    </td>
+  </tr>
+
+
+  </table>
+  
+</fieldset>
+
+</div>
+
+
+
+

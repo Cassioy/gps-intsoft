@@ -1,0 +1,102 @@
+# encoding: utf-8
+# English strings go here for Rails i18n
+en:
+  project_module_contacts_invoices: Invoices
+  
+  label_invoice_plural: Invoices
+  label_invoice: Invoice
+  label_invoice_new: New invoice
+  label_invoice_edit: Edit invoice
+  label_invoice_status: Status
+  label_invoice_status_draft: Draft
+  label_invoice_status_sent: Sent
+  label_invoice_status_paid: Paid
+  label_invoice_lines: Invoice lines
+  label_invoice_percent: Percentage
+  label_invoice_amount: Amount
+  label_invoice_address: Address
+  label_invoice_bill_to: Bill to
+  label_invoice_company_representative: Representative
+  label_invoice_company_name: Company name
+  label_invoice_company_info: Company info
+  label_invoice_bill_info: Bill info
+  label_invoice_units: Line units
+  label_invoice_total: Total
+  label_invoice_tax: Tax
+  label_invoice_sub_amount: Sub total
+  label_invoice_invoiced: Invoiced
+  label_invoice_add_line: Add line
+  label_invoice_overdue: Overdue
+  label_invoice_last_number: 'Last invoice number was #%{number}'
+  label_invoice_template: Template
+  label_invoice_number_format: Invoice number format
+  label_invoice_default_tax: Default tax value
+  label_invoice_line_grouping: Lines grouping
+  label_invoice_line_grouping_by_activity: By activity
+  label_invoice_line_grouping_by_issue: By issue
+  label_invoice_line_grouping_by_user: By user
+  label_invoice_line_grouping_single_line: Single line
+  
+  permission_edit_own_invoices: Edit own invoices
+  permission_edit_invoices: Edit invoices
+  permission_delete_invoices: Delete invoices
+  permission_view_invoices: View invoices
+
+  button_send_mail: Send
+  button_print: Print
+  button_invoice: Invoice
+
+  field_invoice_number: Invoice ID
+  field_invoice_date: Invoice date
+  field_invoice_contact: Client
+  field_invoice_due_date: Due date
+  field_invoice_amount: Amount
+  field_invoice_discount: Discount
+  field_invoice_assigned_to: Assigned to
+  field_invoice_status: Status
+  field_invoice_currency: Currency
+  field_invoice_language: Invoice language 
+  
+  field_invoice_line_position: '#'
+  field_invoice_line_description: Description
+  field_invoice_line_price: Unit price
+  field_invoice_line_quantity: Qty
+  field_invoice_line_tax: Tax
+  field_invoice_line_tax_amount: Tax amount
+  field_invoice_line_total: Total
+  field_invoice_line_units: Units
+  
+  #0.0.3
+  label_invoice_company_logo_url: Company logo (URL)
+  
+  #1.0.1
+  label_invoice_line_grouping_all: All
+  label_invoice_default_currency: Default currency
+  label_invoice_total_including_tax: Total including tax
+  label_invoice_excerpt_invoice_list: Excerpt invoice list
+  label_invoice_created: Invoice created
+  label_invoice_disable_taxes: Disable taxes
+  label_invoice_days_late: '%{days} days late'
+  label_invoice_contact_extra_field: Contact extra field for invoice
+  lable_invoice_contact_extra_field_tip: Displayed on invoices (e.g. Client VAT or TAX ID)
+  label_invoice_decimal_separator: Decimal separator
+  label_invoice_thousands_delimiter: Thousands delimiter
+  label_invoices_general: General
+  label_invoices_company: Company
+  label_invoice_total_with_tax: Total, including tax
+  
+  #1.0.2
+  label_invoices_show_in_pdf: Show in PDF
+  label_invoice_discount_including_tax: Discount including tax
+  
+  #1.0.3
+  label_invoice_use_rate_plugin: Use rate plugin
+  label_invoice_line_grouping_by_time_entry: By time entry
+  label_generate_invoice: Generate invoice
+
+  #1.0.4
+  field_invoice_subject: Subject
+
+  #2.0.0
+  label_invoice_select_companies: Companies as clients
+  

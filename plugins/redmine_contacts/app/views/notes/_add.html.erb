@@ -1,0 +1,10 @@
+    <div class="add-note hide-when-print">  
+       <p><strong><%=l(:label_add_note_plural)%> </strong></p> 
+        
+       <div id="add_ajax_node">
+          <%= form_for(:note, :remote => true, :url => add_note_url(note_source, @project), :html => {:id => "add_note_form"}) do |f| %> 
+            <%= render :partial => 'notes/form', :locals => {:f => f, :ajax_form => true}  %>     
+            <%= submit_tag l(:button_add_note) %>
+          <% end %>   
+       </div>   
+    </div>

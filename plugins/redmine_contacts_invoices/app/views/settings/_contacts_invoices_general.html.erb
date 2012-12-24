@@ -1,0 +1,82 @@
+<p>  
+  <label><%= l(:label_invoice_number_format) %></label>
+  <%= text_field_tag 'settings[invoice_number_format]', @settings[:invoice_number_format], :size => 60 %>
+  <br>
+	<em>%%DAILY_ID%%, %%ID%%, %%YEAR%%, %%MONTH%%, %%DAY%%</em>  
+</p>
+
+
+
+<p>  
+  <label><%= l(:label_invoice_excerpt_invoice_list) %></label>
+  <%= check_box_tag 'settings[excerpt_invoice_list]', 1, @settings[:excerpt_invoice_list] %>
+</p>
+
+
+
+<% if RedmineContactsInvoices.rate_plugin_installed? %>
+<p>  
+  <label><%= l(:label_invoice_use_rate_plugin) %></label>
+  <%= check_box_tag 'settings[use_rate_plugin]', 1, @settings[:use_rate_plugin] %>
+</p>
+<% end %>
+
+<p>  
+  <label><%= l(:label_invoice_disable_taxes) %></label>
+  <%= check_box_tag 'settings[disable_taxes]', 1, @settings[:disable_taxes], :onclick => "$('#tax_data').toggle();" %>
+</p>
+
+<span id="tax_data" <%= 'style="display: none;"' if @settings[:disable_taxes] %>>
+  <p>  
+    <label><%= l(:label_invoice_default_tax) %></label>
+    <%= text_field_tag 'settings[default_tax]', @settings[:default_tax], :size => 6, :maxlength => 5 %> %
+  </p>
+
+  <p>  
+    <label><%= l(:label_invoice_total_including_tax) %></label>
+    <%= check_box_tag 'settings[total_including_tax]', 1, @settings[:total_including_tax] %>
+  </p>
+
+  <p>  
+    <label><%= l(:label_invoice_discount_including_tax) %></label>
+    <%= check_box_tag 'settings[discount_after_tax]', 1, @settings[:discount_after_tax] %>
+  </p>
+  
+</span>
+
+<p>  
+  <label><%= l(:label_invoice_default_currency) %></label>
+  <%= select_tag 'settings[default_currency]', options_for_select(invoice_collection_for_currencies_select.insert(0, ['', '']), @settings[:default_currency]) %> 
+</p>
+
+<p>  
+  <label><%= l(:label_invoice_thousands_delimiter) %></label>
+  <%= select_tag 'settings[thousands_delimiter]',  options_for_select([["9 999", " "], 
+                                                                       ["9,999", ","],
+                                                                       ["9.999", "."]], @settings[:thousands_delimiter]) %>
+</p>
+
+
+<p>  
+  <label><%= l(:label_invoice_decimal_separator) %></label>
+  <%= select_tag 'settings[decimal_separator]',  options_for_select([["0.00", "."], 
+                                                                     ["0,00", ","]], @settings[:decimal_separator]) %>
+</p>
+
+<p>  
+  <label><%= l(:label_invoice_select_companies) %></label>
+  <%= check_box_tag 'settings[select_companies]', 1, @settings[:select_companies] %>
+</p>
+
+
+
+<p>  
+  <label><%= l(:label_invoice_units) %></label>
+  <%= text_area_tag 'settings[units]', @settings[:units].blank? ? '' : @settings[:units].split("\n").map{|u| u.strip}.join("\n"), :rows => 5 %>
+  <br /><em><%= l(:text_custom_field_possible_values_info) %></em>
+</p>
+
+<p>  
+  <label><%= l(:label_contact_show_in_app_menu) %></label>
+  <%= check_box_tag 'settings[show_in_app_menu]', 1, @settings[:show_in_app_menu] %>
+</p>   

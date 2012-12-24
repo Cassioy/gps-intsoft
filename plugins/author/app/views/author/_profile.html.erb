@@ -1,0 +1,25 @@
+<% if project.present? && (controller.is_a?(ProjectsController) || controller.is_a?(WikiController)) %>
+  <% settings = Setting.plugin_author %>
+
+  <% if settings[:author_role_id].present? %>
+    <% role = Role.find_by_id(settings[:author_role_id]) %>
+    <% members = project.members.select { |m| m.roles.detect { |r| r.id == role.id } }.collect { |m| m.user }.sort %>
+
+    <% if members.size > 0 %>
+      <h3><%= h(role) %></h3>
+
+      <% members.each do |member| %>
+        <div class="author box<%= members.size == 1 ? '' : ' small' %>">
+          <%= avatar(member, :size => members.size == 1 ? "100" : "80") %>
+          <span class="author<%= members.size == 1 ? '' : ' small' %>">
+            <%= link_to_user(member, :class => 'user') %>
+          </span>
+          <%= call_hook(:view_sidebar_author_box_bottom, :user => member, :count => members.size) %>
+        </div>
+      <% end %>
+
+    <% end %>
+
+  <% end %>
+
+<% end %>

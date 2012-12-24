@@ -1,0 +1,82 @@
+== Redmine CRM plugin changelog
+
+Redmine CRM plugin - customer retaionship management plugin for redmine
+Copyright (C) 2011-2012 Kirill Bezrukov
+http://www.redminecrm.com/
+
+== 2012-11-01 v3.0.1
+
+Feature: Show new contact/deal events in activity pane
+Feature: Time entries report contacts grouping
+Feature: Bulk change project for deals
+Feature: Setting for showing closes issues on contact page
+Feature: Support for Redmine 2.1 and Ruby on Rails 3.2
+Feature: Deals in Activity tab
+Feature: {{contact_note() }} Macro for referencing notes in the wiki
+Feature: Add assignee field to the contacts table in table view
+Feature: Ruby 1.9 support
+
+
+== 2012-04-x v2.3.3
+
+* Feature #752: Move deals between projects
+* Feature #914: Polish currency PLN
+* Feature #923: Export contacts to XLS (MS Excel 2003)
+* Feature #931: Option for hide the crm menu
+* Bug #903: New contact cannot be added
+* Bug #911: Note is not editable
+
+== 2012-04-12 v2.3.2
+
+* Feature #867: Contact column for issues table
+
+== 2012-04-10 v2.3.1
+
+* Bug #835: 500 error on view user page with contact relation
+* Bug #611: Conflicts in label for global search and contact search
+
+== 2012-04-09 v2.3.0
+
+* Feature #158: Import contacts via csv
+* Feature #241: User defined filter for contact list
+* Feature #414: Create and continue button for contact and deal
+* Feature #430: Permissions for Add, Delete contacts and deals
+* Feature #433: Better compatibility with high-rise and a1 theme
+* Feature #441: Default currency for deals
+* Feature #501: Select Inverse (tags)
+* Feature #506: Filter Contacts that do not have a tag
+* Feature #514: Selected Contacts that persist over multiple pages
+* Feature #554: ¥ currency for deals
+* Feature #833: Rs currency for deals
+* Feature #556: API for adding new note types
+* Feature #558: New contacts list styles (excerpt, table, cards)
+* Feature #559: Redmine 1.4 suport (new routings)
+* Feature #570: Filter issues for contatcs (multiselect by natural person or company)
+* Feature #595: No acts-as-taggable-on plugin/gem needed
+* Feature #600: Find all issues for a contact or responsible person
+* Feature #605: Brazilian translation (many thanks to Batista Hallison)
+* Feature #703: Json API for contacts
+* Feature #775: RSS feed for contacts notes
+* Feature #830: Deals per page settings
+* Feature #831: Last note filter
+* Feature #832: Contacts columns selection for table view
+* Bug #502: Contactors link
+* Bug #523: Revised method for displaying notes
+* Bug #555: Contacts CSV VCF export errors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

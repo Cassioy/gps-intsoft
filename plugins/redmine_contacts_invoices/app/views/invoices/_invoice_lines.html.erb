@@ -1,0 +1,51 @@
+<% if @invoice.lines.any? %>  
+<table class="list invoice-lines">
+<thead>  
+<tr>
+  <th>#</th>
+  <th><%= l(:field_invoice_line_description) %></th>
+  <th><%= l(:field_invoice_line_quantity) %></th>
+  <th><%= l(:field_invoice_line_units) %></th>
+  <th class="price"><%= label_with_currency(:field_invoice_line_price, @invoice.currency) %></th>
+  <% if @invoice.tax > 0 %>
+  <th><%= l(:field_invoice_line_tax) %></th>
+  <% end %>
+  <th class="total"><%= label_with_currency(:label_invoice_total, @invoice.currency) %></th>
+</tr>
+</thead>
+<% @invoice_lines.each do |line| %>
+  <%= render :partial => 'line_row', :locals => {:line => line} %>
+<% end %>
+
+<tr>  
+  <th colspan="<%= (@invoice.tax > 0) ? 6 : 5 %>" class="total"></th>
+  <th class="total_amount"></th>
+</tr>
+
+<% if (@invoice.discount > 0) || (@invoice.tax > 0 && !@invoice.total_with_tax?)  %>
+<tr class="total">  
+  <th colspan="<%= (@invoice.tax > 0) ? 6 : 5 %>" class="total"><%= l(:label_invoice_sub_amount) %>:</th>
+  <th class="total_amount"><%= invoice_price(@invoice.sub_amount) %></th>
+</tr>
+<% end %>
+
+<% @invoice.tax_groups.each do |tax_group| %>
+<tr class="total tax">
+  <th colspan="<%= (@invoice.tax > 0) ? 6 : 5 %>" class="total"><%= "#{l(:label_invoice_tax)} (#{tax_group[0]}%)" %>:</th>
+  <th class="total_amount"> <%= invoice_price(tax_group[1])  %></th>
+</tr>
+<% end if @invoice.tax > 0 %>
+
+<% if @invoice.discount > 0  %>
+<tr class="total">
+  <th colspan="<%= (@invoice.tax > 0) ? 6 : 5 %>" class="total"><%= "#{l(:field_invoice_discount)}#{' (' + @invoice.discount_rate.to_s + '%)' if @invoice.discount_type == 0 }" %>:</th>
+  <th class="total_amount">-<%= invoice_price(@invoice.discount_amount)  %></th>
+</tr>
+<% end %>
+
+<tr class="total">  
+  <th colspan="<%= (@invoice.tax > 0) ? 6 : 5 %>" class="total"><%= label_with_currency(@invoice.total_with_tax? ? :label_invoice_total_with_tax : :label_invoice_total, @invoice.currency) %>:</th>
+  <th class="total_amount"><%= invoice_price(@invoice.amount) %></th>
+</tr>
+</table>
+<% end %>

@@ -1,0 +1,36 @@
+<%= form_tag({}) do -%>	
+	<%= hidden_field_tag 'back_url', url_for(params) %>  
+	<%= hidden_field_tag 'project_id', @project.id if @project %>
+<div class="autoscroll">
+    <table class="list">
+      <thead>      
+      <tr>
+        <th class="checkbox hide-when-print"><%= link_to image_tag('toggle_check.png'), {}, :onclick => 'toggleIssuesSelection(Element.up(this, "form")); return false;',
+                                                           :title => "#{l(:button_check_all)}/#{l(:button_uncheck_all)}" %>
+        </th>
+      
+        <%= sort_header_tag('number', :caption => l(:field_invoice_number), :default_order => 'desc') %>
+        <%= sort_header_tag('invoice_date', :caption => l(:field_invoice_date), :default_order => 'desc') %>
+        <th><%= l(:field_invoice_contact) %></th>
+        <%= sort_header_tag('due_date', :caption => l(:field_invoice_due_date), :default_order => 'desc') %>
+        <th colspan="2"><%= l(:field_invoice_amount) %></th>
+        <%= sort_header_tag('status', :caption => l(:field_invoice_status), :default_order => 'desc') %>
+      </tr>
+      </thead>
+      <% @invoices.each do |invoice| %>
+      <tr style="text-align: center;white-space: nowrap;" class="hascontextmenu invoice <%= cycle('odd', 'even') %> status-<%= invoice.status_id %> <%= 'overdue' if invoice.is_sent && invoice.due_date && (invoice.due_date <= Date.today) %>">
+        <td class="checkbox hide-when-print"><%= check_box_tag("ids[]", invoice.id, false, :id => nil) %></td>			
+        <td class="number"><%= link_to invoice.number, {:controller => :invoices, :action => :show, :id => invoice.id} %></td>
+        <td class="invoice_date"><%= format_date(invoice.invoice_date) %></td>
+        <td class="contact" style="text-align:left;width:50%;"><%= !invoice.contact.blank? ? link_to_contact(invoice.contact).html_safe : "" %></td>
+        <td class="due_date"><%= format_date(invoice.due_date) %></td>
+        <td class="currency" style="text-align:left;"><%= invoice.currency %></td>
+        <td class="amount" style="text-align:right;"><%= invoice_price(invoice.amount) %></td>
+        <td><%= invoice_status_name(invoice.status_id) %></td>
+      </tr>
+      <% end %>
+    </table>
+</div>    
+
+<% end %>
+

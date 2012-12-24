@@ -1,0 +1,28 @@
+<h3><%= "#{l(:label_invoice_status)}#{' - ' + @invoice.contact.name.strip if @invoice && @invoice.contact}"  %></h3>
+<table class="invoices-stat statuses">
+  <tr>
+    <th>
+      <span class="deal-status invoice-status tags draft" >
+			  <span><%= link_to "#{l(:label_invoice_status_draft)}#{'(' + @draft_status_count.to_s + ')' if @draft_status_count > 0 }", {:conroller => "invoices", :action => "index", :status_id => Invoice::DRAFT_INVOICE, :project_id => @project, :contact_id => @invoice && @invoice.contact } %> </span>                 
+      </span>
+    </th>      
+    <td class="sum"><%= stat_sum(@draft_status_sum) %></td>
+  </tr>
+  <tr>
+    <th>
+    <span class="deal-status invoice-status tags sent" >
+		  <span><%= link_to "#{l(:label_invoice_status_sent)}#{'(' + @sent_status_count.to_s + ')' if @sent_status_count > 0 }", {:conroller => "invoices", :action => "index", :status_id => Invoice::SENT_INVOICE, :project_id => @project, :contact_id => @invoice && @invoice.contact } %> </span>                 
+    </span>
+    </th>      
+    <td class="sum"><%= stat_sum(@sent_status_sum) %></td>
+  </tr>
+  <tr>
+    <th>
+    <span class="deal-status invoice-status tags paid" >
+		  <span><%= link_to "#{l(:label_invoice_status_paid)}#{'(' + @paid_status_count.to_s + ')' if @paid_status_count > 0 }", {:conroller => "invoices", :action => "index", :status_id => Invoice::PAID_INVOICE, :project_id => @project, :contact_id => @invoice && @invoice.contact } %> </span>                 
+    </span>
+    </th>      
+    <td class="sum"><%= stat_sum(@paid_status_sum) %></td>
+  </tr>
+
+</table>

@@ -1,0 +1,44 @@
+<%= form_tag({}) do -%>	
+	<%= hidden_field_tag 'back_url', url_for(params) %>  
+	<%= hidden_field_tag 'project_id', @project.id if @project %>
+		<table class="contacts invoices index">
+		<tbody>
+	    <% @invoices.each do |invoice| %>
+			<tr class="hascontextmenu">     
+				<td class="checkbox">
+					<%= check_box_tag("ids[]", invoice.id, false, :id => nil)  %>
+				</td>
+				<td class="status">
+				  <%= invoice_status_tag(invoice) %>
+				</td>         
+				<td class="name invoice-name">
+						<h1 class="invoice_number"><%= link_to "#{invoice.number}#{' - ' + invoice.subject unless invoice.subject.blank?}", {:controller => :invoices, :action => :show, :id => invoice.id} %></h1>
+						<h2>
+							<%= link_to_source(invoice.contact) unless invoice.contact.blank? %>    
+						</h2>
+				</td>
+			
+				<td class="info invoice-info"> 
+					<div class="invoice-sum"><strong><%= "#{invoice.currency} " if invoice.currency %><%= invoice_price(invoice.amount)  %></strong>  
+						                              
+					</div>
+					<div class="invoice-date" >  
+						<strong><%# l(:field_invoice_date) + ":" %></strong> <%= format_date(invoice.invoice_date) %><%= due_days(invoice) %>
+					</div>
+				</td>
+			</tr>
+	    <% end %>
+			<tr class="total">
+				<th/>
+				<th/>
+ 				<th class="title"> <%= "#{l(:label_total)} (#{@invoices_count}):" %> </th> 
+				<th class="sum invoices-sum">
+					<%= invoices_sum_to_currency(@invoices).html_safe %>
+				</th>
+			</tr>
+		</tbody>  
+	  </table>
+
+<% end %>      
+
+

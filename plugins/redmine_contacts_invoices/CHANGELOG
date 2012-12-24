@@ -1,0 +1,17 @@
+== Redmine Invoices plugin changelog
+
+Redmine Invoices plugin - invoicing plugin for Redmine
+Copyright (C) 2011-2012 Kirill Bezrukov
+http://www.redminecrm.com/projects/invoices
+
+== 2012-05-03 v1.1.0
+
+* Feature #557: Caching for invoice total amount
+* Feature #871: Issues paginator with page_size
+* Feature #874: Invoice subject property
+* Feature #875: Expenses statistic by dates and statuses
+* Feature #962: Page number and invoice number in page footer
+* [PRO] Feature #873: CSV invoices/expenses export
+* [PRO] Feature #759: Custom Field support for Expenses module
+* Bug #872: Wrong statistics for boundary dates for last month
+* Bug #921: ActionView:TemplateError

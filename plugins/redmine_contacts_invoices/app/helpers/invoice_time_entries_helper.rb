@@ -1,0 +1,2 @@
+module InvoiceTimeEntriesHelper
+end

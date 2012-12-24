@@ -1,0 +1,47 @@
+<div class="contact card">
+	<table class="subject_header">
+		<tr>
+			<td class="avatar"><%= link_to avatar_to(contact_card, :size => "64"),  contact_url(contact_card), :id => "avatar", :title => contact_card.name %></td>
+			<td class="name" style="vertical-align: top;">
+				<h2><%= link_to contact_card.name, contact_url(contact_card) %></h2>
+				<p>
+				<%= h contact_card.job_title %>
+				<% if !contact_card.is_company %>
+				<%= " #{l(:label_at_company)} " unless (contact_card.job_title.blank? or contact_card.company.blank?) %> 
+  				<% if contact_card.contact_company %>
+  					<%= link_to contact_card.contact_company.name, {:controller => 'contacts', :action => 'show', :project_id => contact_card.contact_company.project(@project), :id => contact_card.contact_company.id } %>
+  				<% else %>
+  					<%= h contact_card.company %> 
+  				<% end %>
+				<% end %>  
+			  </p>
+			  
+		  	<% if contact_card.phones.any? %>
+				  <p class="phone icon icon-phone"><%=  contact_card.phones.first %></p>
+				<% end %>
+				
+				<% if contact_card.emails.any? %>
+				  <p class="email icon icon-email"><%= mail_to contact_card.emails.first %></p>
+				<% end %>
+				
+				
+				<%= render :partial => 'contacts/tag_list', :object => contact_card.tags, :locals => {:editable => false} %>
+
+			</td>   
+			<% if false && (contact_card.phones.any? || contact_card.emails.any?) %>
+			<td class="subject_info">
+				<ul>
+					<% if contact_card.phones.any? %>
+					<li class="phone icon icon-phone"><%=  contact_card.phones.first %></li>
+					<% end %>
+
+					<% if contact_card.emails.any? %>
+					<li class="email icon icon-email"><%= mail_to contact_card.emails.first %></li>
+					<% end %>
+				</ul>
+			</td>
+			<% end %>
+			
+		</tr>
+	</table>
+</div>

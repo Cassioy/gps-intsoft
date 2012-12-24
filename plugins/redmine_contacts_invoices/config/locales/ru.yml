@@ -1,0 +1,101 @@
+# English strings go here for Rails i18n
+ru:
+  project_module_contacts_invoices: Счета
+  
+  label_invoice_plural: Счета
+  label_invoice: Счет
+  label_invoice_new: Новый счет
+  label_invoice_edit: Редактировать счет
+  label_invoice_status: Статус
+  label_invoice_status_draft: Черновик
+  label_invoice_status_sent: Выставлен
+  label_invoice_status_paid: Оплачен
+  label_invoice_lines: Строки счета
+  label_invoice_percent: Процент
+  label_invoice_amount: Сумма
+  label_invoice_address: Адрес
+  label_invoice_bill_to: Плательщик
+  label_invoice_company_representative: Представитель
+  label_invoice_company_name: Наименование компании
+  label_invoice_company_info: Информация о компании
+  label_invoice_bill_info: Платежная информация
+  label_invoice_units: Единицы измерения
+  label_invoice_total: Итого
+  label_invoice_tax: Налог
+  label_invoice_sub_amount: Подитог
+  label_invoice_invoiced: Счета по дате
+  label_invoice_add_line: Добавить строку
+  label_invoice_overdue: Просрочен
+  label_invoice_last_number: 'Номер предыдущего счета #%{number}' 
+  label_invoice_template: Шаблон
+  label_invoice_number_format: Формат номер счета
+  label_invoice_default_tax: Ставка налога по умолчанию
+  label_invoice_line_grouping: Группировать строки
+  label_invoice_line_grouping_by_activity: По активности
+  label_invoice_line_grouping_by_issue: По задачам
+  label_invoice_line_grouping_by_user: По пользователям
+  label_invoice_line_grouping_single_line: Одна строка
+  
+  permission_edit_own_invoices: Редактирование собственных счетов
+  permission_edit_invoices: Редактирование счетов
+  permission_delete_invoices: Удаление счетов
+  permission_view_invoices: Просмотр счетов
+
+  button_send_mail: Отправить
+  button_print: Распечатать
+  button_invoice: Счет
+
+  field_invoice_number: Номер счета
+  field_invoice_date: Дата счета
+  field_invoice_contact: Клиент
+  field_invoice_due_date: Срок оплаты
+  field_invoice_amount: Сумма
+  field_invoice_discount: Скидка
+  field_invoice_assigned_to: Ответственный
+  field_invoice_status: Статус
+  field_invoice_currency: Валюта
+  field_invoice_language: Язык счета
+  
+  field_invoice_line_position: 'N'
+  field_invoice_line_description: Наименование
+  field_invoice_line_price: Цена
+  field_invoice_line_quantity: Кол-во
+  field_invoice_line_tax: Налог
+  field_invoice_line_tax_amount: Сумма налога
+  field_invoice_line_total: Итого
+  field_invoice_line_units: Ед. изм.
+
+  #0.0.3
+  label_invoice_company_logo_url: Логотип компании (URL)
+
+  #1.0.1
+  label_invoice_line_grouping_all: Все
+  label_invoice_default_currency: Валюта по умолчанию
+  label_invoice_total_including_tax: Включать налог в итого
+  label_invoice_excerpt_invoice_list: Отображать счета списком
+  label_invoice_created: Создан счет
+  label_invoice_disable_taxes: Отключить налоги
+  label_invoice_days_late: '%{days} дня(ей) просрочено'
+  label_invoice_contact_extra_field: Поле контакта для счета
+  lable_invoice_contact_extra_field_tip: 'Для отображения в счете (VAT, TAX ID)'
+  label_invoice_decimal_separator: Десятичный разделитель
+  label_invoice_thousands_delimiter: Разделитель разрядов
+  label_invoices_general: Общее
+  label_invoices_company: Компания
+  label_invoice_total_with_tax: 'Итого, включая налог'
+  
+  #1.0.2
+  label_invoices_show_in_pdf: Показывать в PDF
+  label_invoice_discount_including_tax: Включать налог в скидку
+  
+  #1.0.3
+  label_invoice_use_rate_plugin: Использовать плагин Rate
+  label_invoice_line_grouping_by_time_entry: По затраченному времени
+  label_generate_invoice: Создать счет
+
+  #1.0.4
+  field_invoice_subject: Тема  
+  
+  #2.0.0
+  label_invoice_select_companies: Клиенты только компании
+  

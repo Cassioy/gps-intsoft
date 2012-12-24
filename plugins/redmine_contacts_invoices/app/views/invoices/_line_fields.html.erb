@@ -1,0 +1,15 @@
+<tr class="line fields sortable-line" id="line-<%= f.object.id %>"> 
+  <!-- <td><span class="sort icon icon-sort" style="cursor: row-resize;"></span> </td>  -->
+  <td class="description"><%= f.text_area :description, :no_label => true,  :rows => f.object.description.blank? ? 2 : [f.object.description.lines.count, 2].max, :onkeyup => "activateTextAreaResize(this);" %></td>
+  <td class="quantity"><%= f.text_field :quantity, :no_label => true, :size => 6, :onkeyup => 'updateTotal(this)' %></td>
+  <td class="units"><%= f.select :units, RedmineContactsInvoices.invoice_lines_units.collect {|k| [k, k] }, {:no_label => true } %></td>
+  <td class="price"><%= f.text_field :price, :no_label => true, :size => 8, :onkeyup => 'updateTotal(this)' %></td>
+  
+  <% unless RedmineContactsInvoices.settings[:disable_taxes] %>
+  <td class="tax"><%= f.text_field :tax, :no_label => true, :size => 3, :value => (f.object.new_record? && f.object.tax.blank?) ? RedmineContactsInvoices.settings[:default_tax] : f.object.tax %></td>
+  <% end %>
+  
+  <td class="total"><%= format("%.2f\n", f.object.price * f.object.quantity) if f.object.price && f.object.quantity  %></td>
+  <td> <%= link_to_remove_fields "", f, :class => "icon icon-del"  %></td>
+</tr>
+

@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  $(function(){
+      var currentTags = ['<%= Contact.available_tags(:project => @project).map(&:name).join("\',\'").html_safe %>'];
+
+      $('#allowSpacesTags').tagit({
+          availableTags: currentTags,
+          allowSpaces: true,
+          placeholderText: "<%= l(:label_add_tag) %>",
+          caseSensitive: false,
+          removeConfirmation: true
+      });
+  });
+</script>
+
+
+<%= fields_for :contact, @contact do |f| -%>
+ 
+  <%= f.text_field :tag_list, :label => :field_contact_tag_names, :size => 10, :class => 'hol', :id => "allowSpacesTags", :value =>"#{@contact.tags.map(&:name).join(',').html_safe}" %>
+  
+<% end -%>
+
+
+<% content_for :header_tags do %>
+  <%= javascript_include_tag :"tag-it", :plugin => 'redmine_contacts'  %>
+  <%= stylesheet_link_tag :"jquery.tagit.css", :plugin => 'redmine_contacts' %>
+<% end %>

@@ -1,0 +1,11 @@
+<tr class="line-data <%= cycle('odd', 'even') %>">
+  <td class="position"><%= line.position %></td>
+  <td class="description"><%= line.description.gsub(/$/, "<br/>").html_safe %></td>
+  <td class="quantity">x<%= line.quantity %></td>
+  <td class="units"><%= line.units %></td>
+  <td class="price"><%= invoice_price(line.price) %></td>
+  <% if @invoice.tax > 0 %>
+  <td class="tax" title="<%= "#{l(:field_invoice_line_tax_amount)}: #{invoice_price(line.tax_amount)}"  if line.tax %>"><%= line.tax.to_s + '%' if line.tax %></td>
+  <% end %>
+  <td class="total_price"><%= invoice_price(line.total) %></td>
+</tr>

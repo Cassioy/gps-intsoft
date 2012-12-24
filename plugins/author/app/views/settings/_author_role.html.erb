@@ -1,0 +1,5 @@
+<% roles = Role.find_all_givable %>
+<p>
+<%= label_tag('settings[author_role_id]', l(:label_author_role_id)) %>
+<%= select_tag('settings[author_role_id]', content_tag(:option, nil) + options_from_collection_for_select(roles, :id, :name, @settings[:author_role_id].to_i)) %>
+</p>

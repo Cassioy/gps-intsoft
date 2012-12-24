@@ -1,0 +1,16 @@
+#sidebar div.author {
+    display: inline-block;
+    text-align: center;
+}
+#sidebar div.author.box {
+    line-height: 1.3em;
+    width: 120px;
+}
+#sidebar div.author.box.small {
+    width: 90px;
+    margin-right: 3px;
+    vertical-align: top;
+}
+#sidebar div.author span.author {
+    display: block;
+}
